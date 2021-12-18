@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { useHistory } from 'react-router';
 const DisplayProducts = ({ product }) => {
-    const { title, price, image, id } = product;
+    const { title, price, image, _id } = product;
+    const history = useHistory();
 
+    const handleClick = () => {
+        history.push(`/productDetails/${_id}`);
+    }
 
     return (
         <div>
@@ -13,10 +16,7 @@ const DisplayProducts = ({ product }) => {
                     <div className="card-body">
                         <h5 className="card-title">{title.slice(0, 20)}</h5>
                         <h6 className="card-title">${price}</h6>
-
-                        <Link to={`/details/${id}`}>
-                            <button type="button" class="btn btn-danger">See More Details</button>
-                        </Link>
+                        <button onClick={handleClick} type="button" class="btn btn-danger">See More Details</button>
                     </div>
                 </div>
             </div>

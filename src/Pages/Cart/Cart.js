@@ -24,6 +24,7 @@ const Cart = ({ cartItem, handleConfirm, handleCancelOrder }) => {
                         </div>
                     </div>
                 )}
+                {cartItem.length === 0 && <div className='mx-auto'><h2 className='text-danger'>Your Shopping Cart Is Empty!!!</h2></div>}
             </div>
 
         </div>
